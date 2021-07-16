@@ -1,3 +1,4 @@
+import 'package:brave/menu/presentation/pages/truth_or_dare_page.dart';
 import 'package:flutter/material.dart';
 
 class ChooseModePage extends StatelessWidget {
@@ -39,6 +40,9 @@ class ChooseModePage extends StatelessWidget {
                   ),
                   Expanded(
                     child:Container(
+                      child:ModeList( modes: ["1v1","Party","Teams"],
+
+                      ),
 
                     ),
                     flex: 4,
@@ -51,5 +55,39 @@ class ChooseModePage extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class ModeList extends StatelessWidget {
+  const ModeList({Key? key, required this.modes}) : super(key: key);
+  final List<String>modes;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: modes.map((mode) => ModeButton(modeName: mode, onPressed: () {Navigator.of(context).push(MaterialPageRoute(builder: (context) => TruthOrDarePage()));} )).toList(),
+    );
+  }
+}
+
+class ModeButton extends StatelessWidget {
+  const ModeButton({Key? key, required this.modeName, required this.onPressed}) : super(key: key);
+  final String modeName;
+  final void Function() onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+        style: ButtonStyle(
+          minimumSize: MaterialStateProperty.all(Size(100.0,50.0)),
+            backgroundColor: MaterialStateProperty.all(
+                Theme.of(context).primaryColor)),
+        onPressed:  onPressed,
+        child: Text(
+          modeName,
+
+          style: Theme.of(context).textTheme.bodyText1,
+        ));
   }
 }
