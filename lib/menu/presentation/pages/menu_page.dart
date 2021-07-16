@@ -7,11 +7,11 @@ class MenuPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 50, 50, 50),
+      backgroundColor: const Color.fromARGB(255, 50, 50, 50),
       appBar: AppBar(),
       body: Center(
         heightFactor: 1.2,
-        child: Container(
+        child: SizedBox(
           height: 500,
           width: 300,
           child: Card(
@@ -32,7 +32,7 @@ class MenuPage extends StatelessWidget {
                     color: Theme.of(context).primaryColor,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 50,
                 ),
                 Hero(
@@ -44,7 +44,7 @@ class MenuPage extends StatelessWidget {
                       onPressed: () {
                         Navigator.of(context)
                             .push(MaterialPageRoute(builder: (context) {
-                          return ChooseModePage();
+                          return const ChooseModePage();
                         }));
                       },
                       child: Text(

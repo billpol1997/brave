@@ -7,48 +7,42 @@ class ChooseModePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 50, 50 ,50),
+      backgroundColor: const Color.fromARGB(255, 50, 50, 50),
       appBar: AppBar(),
       body: Center(
         heightFactor: 1.2,
-
-        child: Container(
+        child: SizedBox(
           height: 500,
           width: 300,
           child: Hero(
             tag: "play button",
             child: Card(
-
-              elevation: 5.0 ,
+              elevation: 5.0,
               color: Colors.grey[400],
               child: Column(
-
                 children: [
                   Expanded(
-
                     child: Material(
                       elevation: 9,
                       child: Container(
                         child: Center(
-                          child: Text("Choose mode ",style: Theme.of(context).textTheme.headline1,),
+                          child: Text(
+                            "Choose mode ",
+                            style: Theme.of(context).textTheme.headline1,
+                          ),
                         ),
                         height: 80,
                         color: Theme.of(context).primaryColor,
-
                       ),
                     ),
                   ),
-                  Expanded(
-                    child:Container(
-                      child:ModeList( modes: ["1v1","Party","Teams"],
-
-                      ),
-
+                  const Expanded(
+                    child: ModeList(
+                      modes: ["1v1", "Party", "Teams"],
                     ),
                     flex: 4,
-
                   ),
-                  ],
+                ],
               ),
             ),
           ),
@@ -60,19 +54,27 @@ class ChooseModePage extends StatelessWidget {
 
 class ModeList extends StatelessWidget {
   const ModeList({Key? key, required this.modes}) : super(key: key);
-  final List<String>modes;
+  final List<String> modes;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: modes.map((mode) => ModeButton(modeName: mode, onPressed: () {Navigator.of(context).push(MaterialPageRoute(builder: (context) => TruthOrDarePage()));} )).toList(),
+      children: modes
+          .map((mode) => ModeButton(
+              modeName: mode,
+              onPressed: () {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => const TruthOrDarePage()));
+              }))
+          .toList(),
     );
   }
 }
 
 class ModeButton extends StatelessWidget {
-  const ModeButton({Key? key, required this.modeName, required this.onPressed}) : super(key: key);
+  const ModeButton({Key? key, required this.modeName, required this.onPressed})
+      : super(key: key);
   final String modeName;
   final void Function() onPressed;
 
@@ -80,13 +82,12 @@ class ModeButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
         style: ButtonStyle(
-          minimumSize: MaterialStateProperty.all(Size(100.0,50.0)),
-            backgroundColor: MaterialStateProperty.all(
-                Theme.of(context).primaryColor)),
-        onPressed:  onPressed,
+            minimumSize: MaterialStateProperty.all(const Size(100.0, 50.0)),
+            backgroundColor:
+                MaterialStateProperty.all(Theme.of(context).primaryColor)),
+        onPressed: onPressed,
         child: Text(
           modeName,
-
           style: Theme.of(context).textTheme.bodyText1,
         ));
   }

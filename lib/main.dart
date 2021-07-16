@@ -6,7 +6,7 @@ import 'brave_application.dart';
 
 
 void main() {
-  runApp(BraveApplication());
+  runApp(const BraveApplication());
 }
 
 
