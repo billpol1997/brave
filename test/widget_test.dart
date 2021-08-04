@@ -8,11 +8,31 @@
 import 'package:brave/brave_application.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
+  final ThemeData braveDarkTheme = ThemeData(
+    primaryColor: const Color(0xffac260f),
+    textTheme: TextTheme(
+      headline1: GoogleFonts.megrim(
+        textStyle: const TextStyle(
+          fontSize: 30,
+          color: Colors.white,
+          fontWeight: FontWeight.w800,
+        ),
+      ),
+      bodyText1: GoogleFonts.turretRoad(
+        textStyle: const TextStyle(
+          fontSize: 17,
+          color: Colors.white,
+          fontWeight: FontWeight.w800,
+        ),
+      ),
+    ),
+  );
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const BraveApplication());
+    await tester.pumpWidget(BraveApplication(theme: braveDarkTheme,));
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);

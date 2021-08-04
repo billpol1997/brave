@@ -25,21 +25,17 @@ class ChooseModePage extends StatelessWidget {
                     child: Material(
                       elevation: 9,
                       child: Container(
-                        child: Center(
-                          child: Text(
-                            "Choose mode ",
-                            style: Theme.of(context).textTheme.headline1,
-                          ),
-                        ),
                         height: 80,
                         color: Theme.of(context).primaryColor,
+                        child: Center(
+                          child: Text("Choose mode ",
+                              style: Theme.of(context).textTheme.headline1),
+                        ),
                       ),
                     ),
                   ),
                   const Expanded(
-                    child: ModeList(
-                      modes: ["1v1", "Party", "Teams"],
-                    ),
+                    child: ModeList(modes: ["1v1", "Party", "Teams"]),
                     flex: 4,
                   ),
                 ],
@@ -64,8 +60,8 @@ class ModeList extends StatelessWidget {
           .map((mode) => ModeButton(
               modeName: mode,
               onPressed: () {
-                Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => const TruthOrDarePage()));
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const TruthOrDarePage()));
               }))
           .toList(),
     );
@@ -82,9 +78,10 @@ class ModeButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
         style: ButtonStyle(
-            minimumSize: MaterialStateProperty.all(const Size(100.0, 50.0)),
-            backgroundColor:
-                MaterialStateProperty.all(Theme.of(context).primaryColor)),
+          minimumSize: MaterialStateProperty.all(const Size(100.0, 50.0)),
+          backgroundColor:
+              MaterialStateProperty.all(Theme.of(context).primaryColor),
+        ),
         onPressed: onPressed,
         child: Text(
           modeName,
