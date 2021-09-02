@@ -5,6 +5,7 @@ import 'brave_application.dart';
 
 void main() {
   final ThemeData braveDarkTheme = ThemeData(
+    primarySwatch: Colors.red,
     primaryColor: const Color(0xffac260f),
     textTheme: TextTheme(
       headline1: GoogleFonts.megrim(
