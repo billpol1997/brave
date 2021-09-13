@@ -6,6 +6,7 @@
 // tree, read text, and verify that the values of widget properties are correct.
 
 import 'package:brave/brave_application.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -32,7 +33,7 @@ void main() {
   );
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(BraveApplication(theme: braveDarkTheme,));
+    await tester.pumpWidget(BraveApplication(theme: braveDarkTheme, isDebug: kDebugMode,));
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);

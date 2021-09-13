@@ -3,9 +3,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class BraveApplication extends StatelessWidget {
-  const BraveApplication({Key? key, required this.theme}) : super(key: key);
+  const BraveApplication({Key? key, required this.theme, required this.isDebug}) : super(key: key);
 
   final ThemeData theme;
+  final bool isDebug;
+  final bool showMaterialGrid = true;
 
   // This widget is the root of your application.
   @override
@@ -13,6 +15,8 @@ class BraveApplication extends StatelessWidget {
     return MaterialApp(
       title: 'Brave',
       theme: theme,
+      debugShowCheckedModeBanner: isDebug,
+      debugShowMaterialGrid: isDebug && showMaterialGrid,
       home: const MenuPage(),
     );
   }

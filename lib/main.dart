@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -24,5 +25,5 @@ void main() {
       ),
     ),
   );
-  runApp(BraveApplication(theme: braveDarkTheme));
+  runApp(BraveApplication(theme: braveDarkTheme, isDebug: kDebugMode));
 }
